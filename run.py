@@ -14,8 +14,6 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches')
-
-
 def get_sales_data():
     """
     Gets sales figures from the user
@@ -78,7 +76,6 @@ def validate_data(values):
     print("Surplus worksheet updated successfully.\n") 
 """
 
-
 def update_worksheet(data, worksheet):
     """ 
     Receives a list of integers to be inserted into a worksheet
@@ -88,7 +85,6 @@ def update_worksheet(data, worksheet):
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
     print(f"{worksheet} worksheet updated successfully.\n")
-
 
 def calculate_surplus_data(sales_row):
     """
@@ -108,7 +104,6 @@ def calculate_surplus_data(sales_row):
         surplus_data.append(surplus)
     
     return surplus_data
-
 
 def get_last_5_entries_sales():
     """
